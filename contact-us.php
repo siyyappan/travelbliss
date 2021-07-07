@@ -38,7 +38,7 @@
     session_start();
     if (!isset($_SESSION['status'])) {
 
-        echo "<script type='text/javascript'>window.location='login.html'</script>";
+        echo "<script type='text/javascript'>window.location='index.php'</script>";
     } else {
 
         if (isset($_SESSION['status']) && $_SESSION['status'] == 'loggedin') {

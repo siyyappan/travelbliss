@@ -2,14 +2,9 @@
 
 Create mysql database 'tour' and import the sql file in DB/tour.sql
 
-Configure the database credentials in php files
+Configure the database credentials in config.php
 
-home,
-login,
-register,
-contact-us,
-tour-list
-beaches,
-ecotourism,
-hillstations,
-tour-details
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$db = 'tour';

@@ -39,28 +39,15 @@ $userName = "";
 session_start();
 if (!isset($_SESSION['status'])) {
 
-    echo "<script type='text/javascript'>window.location='login.html'</script>";
+    echo "<script type='text/javascript'>window.location='index.php'</script>";
 } else {
 
-    if (isset($_SESSION['status']) && $_SESSION['status'] == 'loggedin') {
+    include("config.php");
 
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $db = 'tour';
-        $conn = mysqli_connect($servername, $username, $password, $db);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    $config = new Config();
 
-        $email = $_SESSION['user_email'];
-        $sql = "SELECT FirstName FROM user WHERE Email='" . $email . "'";
-        $fname = mysqli_query($conn, $sql);
-        while ($row = $fname->fetch_assoc()) {
+    $userName = $config->getUserName();
 
-            $userName = $row['FirstName'];
-        }
-    }
 }
 
 ?>
@@ -171,7 +158,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/ECO1.jpg" alt="packages images">
+                                    <img src="images/special/eco1.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
                                             <h4><a href="#">Chikmagulur</a></h4>
@@ -203,7 +190,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/ECO2.jpg" alt="packages images">
+                                    <img src="images/special/eco2.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
                                             <h4><a href="#">Nandi Hills</a></h4>
@@ -235,7 +222,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/ECO3.jpg" alt="packages images">
+                                    <img src="images/special/eco3.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
                                             <h4><a href="#">Savanadurga</a></h4>
@@ -267,7 +254,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/ECO4.jpg" alt="packages images">
+                                    <img src="images/special/eco4.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
                                             <h4><a href="#">Sakleshpur</a></h4>
@@ -299,7 +286,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/ECO5.jpg" alt="packages images">
+                                    <img src="images/special/eco5.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
                                             <h4><a href="#">Kote Betta</a></h4>
@@ -331,7 +318,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/ECO6.jpg" alt="packages images">
+                                    <img src="images/special/eco6.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
                                             <h4><a href="#">BR Hills</a></h4>

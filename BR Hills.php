@@ -39,28 +39,15 @@ $userName = "";
 session_start();
 if (!isset($_SESSION['status'])) {
 
-    echo "<script type='text/javascript'>window.location='login.html'</script>";
+    echo "<script type='text/javascript'>window.location='index.php'</script>";
 } else {
 
-    if (isset($_SESSION['status']) && $_SESSION['status'] == 'loggedin') {
+    include("config.php");
 
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $db = 'tour';
-        $conn = mysqli_connect($servername, $username, $password, $db);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    $config = new Config();
 
-        $email = $_SESSION['user_email'];
-        $sql = "SELECT FirstName FROM user WHERE Email='" . $email . "'";
-        $fname = mysqli_query($conn, $sql);
-        while ($row = $fname->fetch_assoc()) {
+    $userName = $config->getUserName();
 
-            $userName = $row['FirstName'];
-        }
-    }
 }
 
 ?>

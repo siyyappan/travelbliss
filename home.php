@@ -39,28 +39,15 @@ $userName = "";
 session_start();
 if (!isset($_SESSION['status'])) {
 
-    echo "<script type='text/javascript'>window.location='login.html'</script>";
+    echo "<script type='text/javascript'>window.location='index.php'</script>";
 } else {
 
-    if (isset($_SESSION['status']) && $_SESSION['status'] == 'loggedin') {
+        include("config.php");
 
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $db = 'tour';
-        $conn = mysqli_connect($servername, $username, $password, $db);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    $config = new Config();
 
-        $email = $_SESSION['user_email'];
-        $sql = "SELECT FirstName FROM user WHERE Email='" . $email . "'";
-        $fname = mysqli_query($conn, $sql);
-        while ($row = $fname->fetch_assoc()) {
+    $userName = $config->getUserName();
 
-            $userName = $row['FirstName'];
-        }
-    }
 }
 
 ?>
@@ -281,12 +268,11 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/OFFER.jpg" alt="packages images">
+                                    <img src="images/special/beach1.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
-                                            <h4><a href="#">australia</a></h4>
-                                            <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                            <p></p>
+                                            <h4><a href="#">Black Sand Beach</a></h4>
+                                            <p>The Tilmati beach in Karwar is located in Uttara Kannada district of Karnataka</p>
                                             <div class="package--rating--btn">
                                                 <ul class="rating">
                                                     <li><i class="zmdi zmdi-star"></i></li>
@@ -304,8 +290,7 @@ if (!isset($_SESSION['status'])) {
                                 </div>
                                 <div class="package__details">
                                     <div class="package__details__inner">
-                                        <p>Offer Available</p>
-                                        <p class="packg__prize">$300</p>
+                                        <p>Black Sand Beach</p>
                                     </div>
                                 </div>
                             </div>
@@ -315,12 +300,11 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/OFFER.jpg" alt="packages images">
+                                    <img src="images/special/beach2.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
-                                            <h4><a href="#">australia</a></h4>
-                                            <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                            <p></p>
+                                            <h4><a href="#">OM Beach Gokarna</a></h4>
+                                            <p>Om beach is 6 kms from Gokarna city centre.</p>
                                             <div class="package--rating--btn">
                                                 <ul class="rating">
                                                     <li><i class="zmdi zmdi-star"></i></li>
@@ -330,7 +314,7 @@ if (!isset($_SESSION['status'])) {
                                                     <li><i class="zmdi zmdi-star"></i></li>
                                                 </ul>
                                                 <div class="packages__btn">
-                                                    <a class="view__btn" href="tour-details.php">view more</a>
+                                                    <a class="view__btn" href="OM Beach Gokarna.php">view more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,8 +322,7 @@ if (!isset($_SESSION['status'])) {
                                 </div>
                                 <div class="package__details">
                                     <div class="package__details__inner">
-                                        <p>Offer Available</p>
-                                        <p class="packg__prize">$300</p>
+                                        <p>OM Beach Gokarna</p>
                                     </div>
                                 </div>
                             </div>
@@ -349,12 +332,11 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/OFFER.jpg" alt="packages images">
+                                    <img src="images/special/beach3.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
-                                            <h4><a href="#">australia</a></h4>
-                                            <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                            <p></p>
+                                            <h4><a href="#">Panambur Beach</a></h4>
+                                            <p>The Tilmati beach in Karwar is located in Uttara Kannada district of Karnataka.</p>
                                             <div class="package--rating--btn">
                                                 <ul class="rating">
                                                     <li><i class="zmdi zmdi-star"></i></li>
@@ -364,7 +346,7 @@ if (!isset($_SESSION['status'])) {
                                                     <li><i class="zmdi zmdi-star"></i></li>
                                                 </ul>
                                                 <div class="packages__btn">
-                                                    <a class="view__btn" href="tour-details.php">view more</a>
+                                                    <a class="view__btn" href="panambur Beach.php">view more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -372,8 +354,7 @@ if (!isset($_SESSION['status'])) {
                                 </div>
                                 <div class="package__details">
                                     <div class="package__details__inner">
-                                        <p>Offer Available</p>
-                                        <p class="packg__prize">$300</p>
+                                        <p>Panambur Beach</p>
                                     </div>
                                 </div>
                             </div>
@@ -383,12 +364,11 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/OFFER.jpg" alt="packages images">
+                                    <img src="images/special/beach4.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
-                                            <h4><a href="#">australia</a></h4>
-                                            <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                            <p></p>
+                                            <h4><a href="#">Marina</a></h4>
+                                            <p>Marina Beach is a natural urban beach in Chennai, Tamil Nadu, India, along the Bay of Bengal.</p>
                                             <div class="package--rating--btn">
                                                 <ul class="rating">
                                                     <li><i class="zmdi zmdi-star"></i></li>
@@ -398,7 +378,7 @@ if (!isset($_SESSION['status'])) {
                                                     <li><i class="zmdi zmdi-star"></i></li>
                                                 </ul>
                                                 <div class="packages__btn">
-                                                    <a class="view__btn" href="tour-details.php">view more</a>
+                                                    <a class="view__btn" href="marina.php">view more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -406,8 +386,7 @@ if (!isset($_SESSION['status'])) {
                                 </div>
                                 <div class="package__details">
                                     <div class="package__details__inner">
-                                        <p>Offer Available</p>
-                                        <p class="packg__prize">$300</p>
+                                        <p>Marina</p>
                                     </div>
                                 </div>
                             </div>
@@ -417,12 +396,11 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/OFFER.jpg" alt="packages images">
+                                    <img src="images/special/beach6.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
-                                            <h4><a href="#">australia</a></h4>
-                                            <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                            <p></p>
+                                            <h4><a href="#">Auroville</a></h4>
+                                            <p>Auroville (/ˈɔːrəvɪl/; City of Dawn) is an experimental township in Viluppuram district mostly in the state of Tamil Nadu, India with some parts in the Union Territory of Puducherry in India.</p>
                                             <div class="package--rating--btn">
                                                 <ul class="rating">
                                                     <li><i class="zmdi zmdi-star"></i></li>
@@ -432,7 +410,7 @@ if (!isset($_SESSION['status'])) {
                                                     <li><i class="zmdi zmdi-star"></i></li>
                                                 </ul>
                                                 <div class="packages__btn">
-                                                    <a class="view__btn" href="tour-details.php">view more</a>
+                                                    <a class="view__btn" href="auroville.php">view more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,8 +418,7 @@ if (!isset($_SESSION['status'])) {
                                 </div>
                                 <div class="package__details">
                                     <div class="package__details__inner">
-                                        <p>Offer Available</p>
-                                        <p class="packg__prize">$300</p>
+                                        <p>Auroville</p>
                                     </div>
                                 </div>
                             </div>
@@ -451,12 +428,11 @@ if (!isset($_SESSION['status'])) {
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="packages">
                                 <div class="package__thumb">
-                                    <img src="images/special/OFFER.jpg" alt="packages images">
+                                    <img src="images/special/beach5.jpg" alt="packages images">
                                     <div class="packages__hover__info">
                                         <div class="package__hover__inner">
-                                            <h4><a href="#">australia</a></h4>
-                                            <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                            <p></p>
+                                            <h4><a href="#">Mahabalipuram Beach</a></h4>
+                                            <p>Some 58 km south of the Chennai,. </p>
                                             <div class="package--rating--btn">
                                                 <ul class="rating">
                                                     <li><i class="zmdi zmdi-star"></i></li>
@@ -466,7 +442,7 @@ if (!isset($_SESSION['status'])) {
                                                     <li><i class="zmdi zmdi-star"></i></li>
                                                 </ul>
                                                 <div class="packages__btn">
-                                                    <a class="view__btn" href="tour-details.php">view more</a>
+                                                    <a class="view__btn" href="Mahabalipuram Beach.php">view more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -474,8 +450,7 @@ if (!isset($_SESSION['status'])) {
                                 </div>
                                 <div class="package__details">
                                     <div class="package__details__inner">
-                                        <p>Offer Available</p>
-                                        <p class="packg__prize">$300</p>
+                                        <p>Mahabalipuram Beach</p>
                                     </div>
                                 </div>
                             </div>

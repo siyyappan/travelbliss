@@ -5,16 +5,14 @@
 
 <?php
 
-if (isset($_POST['loginbtn'])) {
-	$servername = 'localhost';
-	$username = 'root';
-	$password = '';
-	$db = 'tour';
-	$conn = mysqli_connect($servername, $username, $password, $db);
+include("config.php");
 
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
+if (isset($_POST['loginbtn'])) {
+
+	$config = new Config();
+
+	$conn = $config->connection;
+
 	$email = $_POST['userEmail'];
 	$p1 = $_POST['userPassword'];
 	$sql = "SELECT * FROM user WHERE Email='" . $email . "' AND Password='" . $p1 . "'";
@@ -28,9 +26,10 @@ if (isset($_POST['loginbtn'])) {
 		header("location:home.php?status=loggedin");
 	} else {
 
-		// echo "<script type='text/javascript'>alert('Invalid Login Credentials'); window.location='userlogin.html'</script>";
+		// echo "<script type='text/javascript'>alert('Invalid Login Credentials'); window.location='userindex.php'</script>";
 
-		echo "<script type='text/javascript'>alertMsg('Invalid Login Credentials', '#bd2130');window.location='userlogin.html'</script>";
+		// echo "<script type='text/javascript'>alertMsg('Invalid Login Credentials', '#bd2130');window.location='index.php'</script>";
+		echo "<script type='text/javascript'>window.location='index.php'</script>";
 
 	}
 }
