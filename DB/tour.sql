@@ -43,14 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`FirstName`, `LastName`, `Email`, `Password`, `Mobile`) VALUES
-('Grusha', 'Dharod', 'grusha.d@somaiya.edu', 'grusha', 1234567890),
-('Shivanee', 'Jaiswal', 'jaiswalshivanee0211@yahoo.in', 'shiv', 892329),
-('kumar', 'S', 'kumar@gmail.com', 'kumar', 123456789),
-('preeti', 'S', 'preeti@gmail.com', 'preeti', 123456789),
-('rajesh', 'Kumar', 'rajesh@gmail.com', 'rajesh', 9042495010),
-('Shivanee', 'Jaiswal', 'shivanee.j@somaiya.edu', '12345', 8097806372),
-('Suresh', 'kumar', 'suresh@gmail.com', 'suresh', 123456789),
-('Vicky', 'Daiya', 'vicky.daiya@somaiya.edu', 'vicky', 9876543210);
+('Travelbliss', 'Travelbliss', 'user@travelbliss.com', 'travelbliss', 9876543214);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
